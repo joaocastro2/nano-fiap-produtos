@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
 
         Categoria categoria = new Categoria();
-        categoria.setNome("Eletrônicos");
+        categoria.setNome("moveis");
 
         Categoria categoriaSalva = CategoriaCollectionRepository.save(categoria);
         System.out.println("Categoria: " + categoriaSalva);

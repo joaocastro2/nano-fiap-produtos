@@ -2,6 +2,7 @@ package br.com.fiap.produtos;
 
 import br.com.fiap.produtos.model.Categoria;
 import br.com.fiap.produtos.model.Produtos;
+import br.com.fiap.produtos.repository.CategoriaCollectionRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -11,18 +12,12 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
 
-        Categoria eletronicos = new Categoria();
-        eletronicos.setId(1l).setNome("Eletrônicos");
+        Categoria categoria = new Categoria();
+        categoria.setNome("Eletrônicos");
 
-        Produtos produto = new Produtos();
-        produto.setId(1l)
-                .setNome("Celular alcatel")
-                .setDescricao("Aparelho celular modelo alcatel 256gb")
-                .setCategoria(eletronicos)
-                .setDataCadastro(LocalDateTime.now())
-                .setPreco(BigDecimal.valueOf(800));
+        Categoria categoriaSalva = CategoriaCollectionRepository.save(categoria);
+        System.out.println("Categoria: " + categoriaSalva);
 
-        System.out.println("Categoria: " + eletronicos);
-        System.out.println("Produtos: " + produto);
+
     }
 }
